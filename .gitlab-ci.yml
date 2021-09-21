@@ -7,7 +7,7 @@ variables:
   ZIP_NAME: 1-书籍配套例程-F407ZG_
   #NAS地址 数量不匹配需要删改PDF-files任务中的内容
   NAS_URL1: /mnt/百度云对外发布资料/STM32产品线/野火【F407开发板-霸天虎】光盘资料/A盘（资料盘）/1-程序源码_教程文档/2-[野火]《STM32 HAL库开发实战指南》(HAL库源码)
-  # NAS_URL2: 
+  NAS_URL2: /mnt/百度云对外发布资料/野火开源图书专栏/[野火]《STM32 HAL库开发实战指南》系列/基于STM32F407_F429
   # NAS_URL3: 
 
 stages: # 分段
@@ -29,7 +29,7 @@ code-pack:
     - cp $ZIP_NAME$now.$FORMAT "$NAS_URL1"
     # #NAS_URL2
     # - find "$NAS_URL2" -name "$ZIP_NAME.$FORMAT" -print0 | xargs -0 rm -f
-    # - cp $ZIP_NAME.$FORMAT "$NAS_URL2"
+    - cp $ZIP_NAME$now.$FORMAT "$NAS_URL2"
     # #NAS_URL3
     # - find "$NAS_URL3" -name "$ZIP_NAME.$FORMAT" -print0 | xargs -0 rm -f
     # - cp $ZIP_NAME.$FORMAT "$NAS_URL3"
