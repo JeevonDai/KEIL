@@ -25,11 +25,10 @@ code-pack:
 
     #网盘同步，在不同的仓库中都需要修改
     #NAS_URL1
-    # - find "$NAS_URL1" -name "$ZIP_NAME*.$FORMAT" -print0 | xargs -0 rm -f
-    - cp $ZIP_NAME$now.$FORMAT "$NAS_URL1"
-    # #NAS_URL2
-    # - find "$NAS_URL2" -name "$ZIP_NAME.$FORMAT" -print0 | xargs -0 rm -f
-    - cp $ZIP_NAME$now.$FORMAT "$NAS_URL2"
-    # #NAS_URL3
-    # - find "$NAS_URL3" -name "$ZIP_NAME.$FORMAT" -print0 | xargs -0 rm -f
-    # - cp $ZIP_NAME.$FORMAT "$NAS_URL3"
+    # 获取要延时删除的zip包列表
+    - find "$NAS_URL1" -path "$NAS_URL1/$ZIP_NAME$now.$FORMAT" -prune -o -type f -name "*.$FORMAT" -print > /root/autodelate/temp/$ZIP_NAME$now.log
+    # 复制新的压缩包
+    - cp -f $ZIP_NAME$now.$FORMAT "$NAS_URL1"
+    #NAS_URL2
+    - find "$NAS_URL2" -path "$NAS_URL2/$ZIP_NAME$now.$FORMAT" -prune -o -type f -name "*.$FORMAT" -print >> /root/autodelate/temp/$ZIP_NAME$now.log
+    - cp -f $ZIP_NAME$now.$FORMAT "$NAS_URL2"
