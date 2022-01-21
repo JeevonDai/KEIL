@@ -65,7 +65,7 @@ int main(void)
 	/* RTC配置：选择时钟源，设置RTC_CLK的分频系数 */
 	RTC_CLK_Config();
 
-	if (HAL_RTCEx_BKUPRead(&Rtc_Handle,RTC_BKP_DRX) != 0X32F3)
+	if (HAL_RTCEx_BKUPRead(&Rtc_Handle,RTC_BKP_DRX) != 0X32F2)
 	{				
 		/* 设置时间和日期 */
 		RTC_TimeAndDate_Set();
