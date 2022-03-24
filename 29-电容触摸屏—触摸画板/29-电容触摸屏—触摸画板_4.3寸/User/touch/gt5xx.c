@@ -717,6 +717,11 @@ Output:
 			cfg_info =  CTP_CFG_GT911; //指向寄存器配置
 			cfg_info_len = CFG_GROUP_LEN(CTP_CFG_GT911);//计算配置表的大小
 		}
+        else  //其他的IC默认用GT5688的配置
+		{
+			cfg_info =  CTP_CFG_GT5688; //指向寄存器配置
+			cfg_info_len = CFG_GROUP_LEN(CTP_CFG_GT5688);//计算配置表的大小
+		}
 		
     memset(&config[GTP_ADDR_LENGTH], 0, GTP_CONFIG_MAX_LENGTH);
     memcpy(&config[GTP_ADDR_LENGTH], cfg_info, cfg_info_len);
