@@ -26,9 +26,13 @@ code-pack:
     #网盘同步，在不同的仓库中都需要修改
     #NAS_URL1
     # 获取要延时删除的zip包列表
-    - find "$NAS_URL1" -path "$NAS_URL1/$ZIP_NAME$now.$FORMAT" -prune -o -type f -name "*.$FORMAT" -print > /root/autodelate/temp/$ZIP_NAME$now.log
+    - find "$NAS_URL1" -maxdepth 1 -type f -name "*.$FORMAT" -print > /root/autodelate/temp/$ZIP_NAME$now.tmp
     # 复制新的压缩包
     - cp -f $ZIP_NAME$now.$FORMAT "$NAS_URL1"
     #NAS_URL2
-    - find "$NAS_URL2" -path "$NAS_URL2/$ZIP_NAME$now.$FORMAT" -prune -o -type f -name "*.$FORMAT" -print >> /root/autodelate/temp/$ZIP_NAME$now.log
+    - find "$NAS_URL2" -maxdepth 1 -type f -name "*.$FORMAT" -print >> /root/autodelate/temp/$ZIP_NAME$now.tmp
     - cp -f $ZIP_NAME$now.$FORMAT "$NAS_URL2"
+    #排除延时删除列表中当日的zip包
+    - sed /$ZIP_NAME$now.$FORMAT/d /root/autodelate/temp/$ZIP_NAME$now.tmp > /root/autodelate/temp/$ZIP_NAME$now.log
+    - rm /root/autodelate/temp/$ZIP_NAME$now.tmp
+
