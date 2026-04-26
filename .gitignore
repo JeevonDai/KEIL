@@ -80,4 +80,7 @@ settings
 *.sim
 *.log
 *.ld
-
+*.dbgconf
+*.dbgconf*
+*.uvoptx
+*.uvprojx

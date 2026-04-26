@@ -1,0 +1,33 @@
+{
+  "configurations": [
+    {
+      "name": "STM32F407ZGTx",
+      "includePath": [
+        "${workspaceFolder}/**/User",
+        "${workspaceFolder}/**/User/**",
+        "${workspaceFolder}/**/Inc",
+        "${workspaceFolder}/**/Inc/**",
+        "${workspaceFolder}/**/Src",
+        "${workspaceFolder}/**/Src/**",
+        "${workspaceFolder}/**/Libraries/**",
+        "${workspaceFolder}/**/Drivers/**",
+        "${workspaceFolder}/**"
+      ],
+      "defines": [
+        "USE_HAL_DRIVER",
+        "STM32F407xx"
+      ],
+      "compilerPath": "",
+      "cStandard": "c11",
+      "cppStandard": "c++17",
+      "intelliSenseMode": "windows-gcc-x64",
+      "browse": {
+        "path": [
+          "${workspaceFolder}/**"
+        ],
+        "limitSymbolsToIncludedHeaders": false
+      }
+    }
+  ],
+  "version": 4
+}
